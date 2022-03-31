@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct simple_monitoringApp: App {
+    @State public var userData:UserData?
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if userData == nil {
+                LoginWindow(userData: $userData)
+            } else {
+                MainWindow()
+            }
         }
     }
 }

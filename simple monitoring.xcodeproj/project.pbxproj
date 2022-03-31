@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921B5CE727F5CA2F00559824 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CE627F5CA2F00559824 /* MainWindow.swift */; };
+		921B5CEB27F5D6FF00559824 /* LoginWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CEA27F5D6FF00559824 /* LoginWindow.swift */; };
+		921B5CF227F5DC7200559824 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CF127F5DC7200559824 /* UserData.swift */; };
+		921B5CF627F5DD5C00559824 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CF527F5DD5C00559824 /* KeyChain.swift */; };
 		92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */; };
-		92ADE20D27F31100008EF83C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE20C27F31100008EF83C /* ContentView.swift */; };
 		92ADE20F27F31105008EF83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE20E27F31105008EF83C /* Assets.xcassets */; };
 		92ADE21227F31105008EF83C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE21127F31105008EF83C /* Preview Assets.xcassets */; };
 		92ADE21C27F31105008EF83C /* simple_monitoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE21B27F31105008EF83C /* simple_monitoringTests.swift */; };
@@ -34,9 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		921B5CE627F5CA2F00559824 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		921B5CEA27F5D6FF00559824 /* LoginWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWindow.swift; sourceTree = "<group>"; };
+		921B5CF127F5DC7200559824 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		921B5CF527F5DD5C00559824 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		92ADE20727F31100008EF83C /* simple monitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple monitoring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_monitoringApp.swift; sourceTree = "<group>"; };
-		92ADE20C27F31100008EF83C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92ADE20E27F31105008EF83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92ADE21127F31105008EF83C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92ADE21727F31105008EF83C /* simple monitoringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple monitoringTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921B5CEC27F5DBE000559824 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				921B5CEE27F5DC1700559824 /* UserData */,
+				921B5CED27F5DC0300559824 /* Keychain */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		921B5CED27F5DC0300559824 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				921B5CF527F5DD5C00559824 /* KeyChain.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		921B5CEE27F5DC1700559824 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				921B5CF127F5DC7200559824 /* UserData.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		921B5CF027F5DC4100559824 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				921B5CE627F5CA2F00559824 /* MainWindow.swift */,
+				921B5CEA27F5D6FF00559824 /* LoginWindow.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		92ADE1FE27F31100008EF83C = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +134,9 @@
 		92ADE20927F31100008EF83C /* simple monitoring */ = {
 			isa = PBXGroup;
 			children = (
+				921B5CF027F5DC4100559824 /* Pages */,
+				921B5CEC27F5DBE000559824 /* utils */,
 				92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */,
-				92ADE20C27F31100008EF83C /* ContentView.swift */,
 				92ADE20E27F31105008EF83C /* Assets.xcassets */,
 				92ADE21027F31105008EF83C /* Preview Content */,
 			);
@@ -257,8 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92ADE20D27F31100008EF83C /* ContentView.swift in Sources */,
+				921B5CE727F5CA2F00559824 /* MainWindow.swift in Sources */,
 				92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */,
+				921B5CF627F5DD5C00559824 /* KeyChain.swift in Sources */,
+				921B5CF227F5DC7200559824 /* UserData.swift in Sources */,
+				921B5CEB27F5D6FF00559824 /* LoginWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
