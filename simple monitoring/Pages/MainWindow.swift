@@ -18,7 +18,7 @@ struct MainWindow: View {
                     Image(systemName: "1.square.fill")
                     Text("First")
                 }
-            Text("Another Tab")
+            MetricsTab(userData: $userData)
                 .tabItem {
                     Image(systemName: "2.square.fill")
                     Text("Second")
