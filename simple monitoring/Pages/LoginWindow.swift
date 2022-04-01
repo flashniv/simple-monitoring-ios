@@ -26,11 +26,11 @@ struct LoginWindow: View {
                 .padding()
                 Button("Login"){
                     print("Login clk \(account) \(password)")
-                    let keyChain=KeyChain()
-                    do {
-                        try keyChain.addItem(account: account, password: password)
+                    do{
+                        try UserData.saveToDevice(newUserData: UserData(userName: account, password: password))
+                        userData=UserData(userName: account, password: password)
                     } catch {
-                        print("Error adding UserData unexcepted \(error)")
+                        print("Error save userData \(error)")
                     }
                 }
                 .frame(minWidth:0,maxWidth: .infinity)

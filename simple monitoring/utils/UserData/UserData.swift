@@ -43,17 +43,24 @@ struct UserData{
         defaults.set(newUserData.userName,forKey: "account")
         do {
             try keychain.addItem(account: newUserData.userName, password: newUserData.password)
+        } catch KeyChain.KeychainError.duplicateItem {
+            do{
+                try keychain.delItem(account: newUserData.userName)
+                try keychain.addItem(account: newUserData.userName, password: newUserData.password)
+            } catch {
+                throw UserDataError.unexceptedError
+            }
         } catch {
             throw UserDataError.unexceptedError
         }
     }
-    static func deleteFromDevice(newUserData:UserData) throws -> Void {
+    static func deleteFromDevice(oldUserData:UserData) throws -> Void {
         let defaults=UserDefaults.standard
         let keychain=KeyChain()
         
         defaults.removeObject(forKey: "account")
         do {
-            try keychain.delItem(account: newUserData.userName)
+            try keychain.delItem(account: oldUserData.userName)
         } catch {
             throw UserDataError.unexceptedError
         }

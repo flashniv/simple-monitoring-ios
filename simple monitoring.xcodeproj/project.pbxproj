@@ -11,6 +11,8 @@
 		921B5CEB27F5D6FF00559824 /* LoginWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CEA27F5D6FF00559824 /* LoginWindow.swift */; };
 		921B5CF227F5DC7200559824 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CF127F5DC7200559824 /* UserData.swift */; };
 		921B5CF627F5DD5C00559824 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CF527F5DD5C00559824 /* KeyChain.swift */; };
+		921B5CF827F7079500559824 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CF727F7079500559824 /* SettingsTab.swift */; };
+		921B5CFB27F70EC100559824 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CFA27F70EC100559824 /* AccountSettings.swift */; };
 		92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */; };
 		92ADE20F27F31105008EF83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE20E27F31105008EF83C /* Assets.xcassets */; };
 		92ADE21227F31105008EF83C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE21127F31105008EF83C /* Preview Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		921B5CEA27F5D6FF00559824 /* LoginWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWindow.swift; sourceTree = "<group>"; };
 		921B5CF127F5DC7200559824 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		921B5CF527F5DD5C00559824 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		921B5CF727F7079500559824 /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
+		921B5CFA27F70EC100559824 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		92ADE20727F31100008EF83C /* simple monitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple monitoring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_monitoringApp.swift; sourceTree = "<group>"; };
 		92ADE20E27F31105008EF83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,10 +109,20 @@
 		921B5CF027F5DC4100559824 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				921B5CF927F70E5100559824 /* SettingsTab */,
 				921B5CE627F5CA2F00559824 /* MainWindow.swift */,
 				921B5CEA27F5D6FF00559824 /* LoginWindow.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		921B5CF927F70E5100559824 /* SettingsTab */ = {
+			isa = PBXGroup;
+			children = (
+				921B5CF727F7079500559824 /* SettingsTab.swift */,
+				921B5CFA27F70EC100559824 /* AccountSettings.swift */,
+			);
+			path = SettingsTab;
 			sourceTree = "<group>";
 		};
 		92ADE1FE27F31100008EF83C = {
@@ -298,9 +312,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921B5CF827F7079500559824 /* SettingsTab.swift in Sources */,
 				921B5CE727F5CA2F00559824 /* MainWindow.swift in Sources */,
 				92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */,
 				921B5CF627F5DD5C00559824 /* KeyChain.swift in Sources */,
+				921B5CFB27F70EC100559824 /* AccountSettings.swift in Sources */,
 				921B5CF227F5DC7200559824 /* UserData.swift in Sources */,
 				921B5CEB27F5D6FF00559824 /* LoginWindow.swift in Sources */,
 			);

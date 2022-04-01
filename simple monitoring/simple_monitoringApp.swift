@@ -24,7 +24,7 @@ struct simple_monitoringApp: App {
             if userData == nil {
                 LoginWindow(userData: $userData)
             } else {
-                MainWindow()
+                MainWindow(userData: $userData)
             }
         }
     }
