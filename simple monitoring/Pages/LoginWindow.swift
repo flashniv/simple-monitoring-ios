@@ -29,10 +29,8 @@ struct LoginWindow: View {
                     let keyChain=KeyChain()
                     do {
                         try keyChain.addItem(account: account, password: password)
-                    } catch is KeyChain.KeychainError {
-                        print("Error adding UserData to keychain")
                     } catch {
-                        print("Error adding UserData unexcepted")
+                        print("Error adding UserData unexcepted \(error)")
                     }
                 }
                 .frame(minWidth:0,maxWidth: .infinity)

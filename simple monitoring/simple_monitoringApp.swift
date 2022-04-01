@@ -9,7 +9,15 @@ import SwiftUI
 
 @main
 struct simple_monitoringApp: App {
-    @State public var userData:UserData?
+    @State public var userData:UserData?=nil
+    
+    init() {
+        do {
+            try _userData = State(initialValue: UserData.loadFromDevice())
+        } catch {
+            print("Error getting UserData unexcepted \(error)")
+        }
+    }
     
     var body: some Scene {
         WindowGroup {
