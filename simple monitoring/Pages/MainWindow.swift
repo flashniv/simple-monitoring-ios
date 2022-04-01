@@ -12,7 +12,7 @@ struct MainWindow: View {
 
     var body: some View {
         TabView {
-            Text("The First Tab")
+            DashboardTab(userData: $userData)
                 .badge(10)
                 .tabItem {
                     Image(systemName: "1.square.fill")
