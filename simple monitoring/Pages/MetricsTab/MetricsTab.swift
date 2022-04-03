@@ -14,28 +14,42 @@ struct Metric:Codable {
 struct MetricsTab: View {
     @Binding public var userData:UserData?
     @State private var metrics:[Metric]=[]
+    @State private var filter:String=""
     
     var body: some View {
-        ScrollView{
-            VStack{
-                Button("load"){
-                    guard let userData = userData else {
-                        return
+        NavigationView{
+            Form{
+                Section("Search"){
+                    Button("load"){
+                        guard let userData = userData else {
+                            return
+                        }
+                        
+                        do {
+                            try Server.get(userData: userData, url: "/gui/metrics/allMetrics",hook: loadData(data:response:error:))
+                        } catch {
+                            print("Error metrics loading \(error)")
+                        }
                     }
-                    
-                    do {
-                        try Server.get(userData: userData, url: "/gui/metrics/allMetrics",hook: loadData(data:response:error:))
-                    } catch {
-                        print("Error metrics loading \(error)")
-                    }
+                    TextField("Search", text: $filter)
                 }
-                ForEach(metrics, id: \.path){ metric in
-                    Text(metric.path)
+                Section("Metrics"){
+                    ForEach(metrics.filter(){metric in
+                        if filter.isEmpty {
+                            return true
+                        }
+                        return metric.path.contains(filter)
+                    }, id: \.path){ metric in
+                        NavigationLink(destination: Text("Second View")) {
+                            Text(metric.path)
+                        }
+                    }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }
     }
-    
     /*[
      {"path":"collectd.collaborator.valorans.cpu"},
      {"path":"collectd.collaborator.valorans.df"},
