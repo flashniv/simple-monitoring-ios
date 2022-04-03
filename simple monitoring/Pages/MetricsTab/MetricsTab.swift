@@ -12,7 +12,12 @@ struct Metric:Codable {
 }
 
 struct MetricsTab: View {
+    enum MetricsTab: Error{
+        case errorJSONParsing
+    }
+    
     @Binding public var userData:UserData?
+    @State private var loadind:Bool=true
     @State private var metrics:[Metric]=[]
     @State private var filter:String=""
     
@@ -20,20 +25,13 @@ struct MetricsTab: View {
         NavigationView{
             Form{
                 Section("Search"){
-                    Button("load"){
-                        guard let userData = userData else {
-                            return
-                        }
-                        
-                        do {
-                            try Server.get(userData: userData, url: "/gui/metrics/allMetrics",hook: loadData(data:response:error:))
-                        } catch {
-                            print("Error metrics loading \(error)")
-                        }
-                    }
                     TextField("Search", text: $filter)
                 }
                 Section("Metrics"){
+                    if(loadind){
+                        ProgressView()
+                            .frame(minWidth: 0,maxWidth: .infinity, alignment: .center)
+                    }
                     ForEach(metrics.filter(){metric in
                         if filter.isEmpty {
                             return true
@@ -49,7 +47,21 @@ struct MetricsTab: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
         }
+        .onAppear(perform: onLoad)
     }
+    
+    func onLoad() -> Void {
+        guard let userData = userData else {
+            return
+        }
+        
+        do {
+            try Server.get(userData: userData, url: "/gui/metrics/allMetrics",hook: loadData)
+        } catch {
+            print("Error metrics loading \(error)")
+        }
+    }
+    
     /*[
      {"path":"collectd.collaborator.valorans.cpu"},
      {"path":"collectd.collaborator.valorans.df"},
@@ -71,6 +83,7 @@ struct MetricsTab: View {
         }
         do {
             try metrics=JSONDecoder().decode([Metric].self,from: str.data(using: String.Encoding.utf8)!)
+            loadind=false
         } catch {
             print("Error parsing JSON \(error)")
         }
