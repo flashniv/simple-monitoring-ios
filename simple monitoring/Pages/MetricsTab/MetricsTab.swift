@@ -20,6 +20,9 @@ struct MetricsTab: View {
     @State private var loadind:Bool=true
     @State private var metrics:[Metric]=[]
     @State private var filter:String=""
+    //for alerting
+    @State private var showingAlert:Bool=false
+    @State private var errorMessage:String=""
     
     var body: some View {
         NavigationView{
@@ -43,6 +46,9 @@ struct MetricsTab: View {
                         }
                     }
                 }
+                .alert(errorMessage, isPresented: $showingAlert) {
+                    Button("OK", role: .cancel) { }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
@@ -58,10 +64,15 @@ struct MetricsTab: View {
         do {
             try Server.get(userData: userData, url: "/gui/metrics/allMetrics",hook: loadData)
         } catch {
-            print("Error metrics loading \(error)")
+            showError("Error metrics loading \(error)")
         }
     }
     
+    func showError(_ message:String) -> Void {
+        print("Error \(message)")
+        errorMessage=message
+        showingAlert=true
+    }
     /*[
      {"path":"collectd.collaborator.valorans.cpu"},
      {"path":"collectd.collaborator.valorans.df"},
@@ -70,22 +81,22 @@ struct MetricsTab: View {
      */
     func loadData(data:Data?,response:URLResponse?,error:Error?) -> Void {
         guard error == nil else {
-            print("Error metrics loading \(error!.localizedDescription)")
+            showError("Error metrics loading \(error!.localizedDescription)")
             return
         }
         guard let data = data else {
-            print("Error Empty data")
+            showError("Error Empty data")
             return
         }
         guard let str = String(data: data, encoding: .utf8) else {
-            print("Error parsing data to str")
+            showError("Error parsing data to str")
             return
         }
         do {
             try metrics=JSONDecoder().decode([Metric].self,from: str.data(using: String.Encoding.utf8)!)
             loadind=false
         } catch {
-            print("Error parsing JSON \(error)")
+            showError("Error parsing JSON \(error)")
         }
     }
     

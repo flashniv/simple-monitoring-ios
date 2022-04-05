@@ -16,6 +16,8 @@
 		921B5CFE27F71DD000559824 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5CFD27F71DD000559824 /* Server.swift */; };
 		921B5D0127F7279F00559824 /* DashboardTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5D0027F7279F00559824 /* DashboardTab.swift */; };
 		921B5D0427F73F3500559824 /* MetricsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B5D0327F73F3500559824 /* MetricsTab.swift */; };
+		924E773827FC40C200A01F15 /* HistoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E773727FC40C200A01F15 /* HistoryTab.swift */; };
+		924E773A27FC481200A01F15 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924E773927FC481200A01F15 /* HistoryItemView.swift */; };
 		92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */; };
 		92ADE20F27F31105008EF83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE20E27F31105008EF83C /* Assets.xcassets */; };
 		92ADE21227F31105008EF83C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92ADE21127F31105008EF83C /* Preview Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		921B5CFD27F71DD000559824 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		921B5D0027F7279F00559824 /* DashboardTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTab.swift; sourceTree = "<group>"; };
 		921B5D0327F73F3500559824 /* MetricsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsTab.swift; sourceTree = "<group>"; };
+		924E773727FC40C200A01F15 /* HistoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTab.swift; sourceTree = "<group>"; };
+		924E773927FC481200A01F15 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
 		92ADE20727F31100008EF83C /* simple monitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple monitoring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ADE20A27F31100008EF83C /* simple_monitoringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_monitoringApp.swift; sourceTree = "<group>"; };
 		92ADE20E27F31105008EF83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		921B5CF027F5DC4100559824 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				924E773627FC40A800A01F15 /* HistoryTab */,
 				921B5D0227F73F1B00559824 /* MetricsTab */,
 				921B5CFF27F7277200559824 /* DashboardTab */,
 				921B5CF927F70E5100559824 /* SettingsTab */,
@@ -155,6 +160,15 @@
 				921B5D0327F73F3500559824 /* MetricsTab.swift */,
 			);
 			path = MetricsTab;
+			sourceTree = "<group>";
+		};
+		924E773627FC40A800A01F15 /* HistoryTab */ = {
+			isa = PBXGroup;
+			children = (
+				924E773727FC40C200A01F15 /* HistoryTab.swift */,
+				924E773927FC481200A01F15 /* HistoryItemView.swift */,
+			);
+			path = HistoryTab;
 			sourceTree = "<group>";
 		};
 		92ADE1FE27F31100008EF83C = {
@@ -350,8 +364,10 @@
 				92ADE20B27F31100008EF83C /* simple_monitoringApp.swift in Sources */,
 				921B5CF627F5DD5C00559824 /* KeyChain.swift in Sources */,
 				921B5CFB27F70EC100559824 /* AccountSettings.swift in Sources */,
+				924E773A27FC481200A01F15 /* HistoryItemView.swift in Sources */,
 				921B5D0427F73F3500559824 /* MetricsTab.swift in Sources */,
 				921B5CF227F5DC7200559824 /* UserData.swift in Sources */,
+				924E773827FC40C200A01F15 /* HistoryTab.swift in Sources */,
 				921B5CFE27F71DD000559824 /* Server.swift in Sources */,
 				921B5CEB27F5D6FF00559824 /* LoginWindow.swift in Sources */,
 				921B5D0127F7279F00559824 /* DashboardTab.swift in Sources */,

@@ -23,9 +23,14 @@ struct MainWindow: View {
                     Image(systemName: "2.square.fill")
                     Text("Metrics")
                 }
-            SettingsTab(userData: $userData)
+            HistoryTab(userData: $userData)
                 .tabItem {
                     Image(systemName: "3.square.fill")
+                    Text("History")
+                }
+            SettingsTab(userData: $userData)
+                .tabItem {
+                    Image(systemName: "4.square.fill")
                     Text("Settings")
                 }
         }
